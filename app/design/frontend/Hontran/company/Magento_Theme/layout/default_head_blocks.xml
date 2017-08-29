@@ -26,10 +26,5 @@
         <css src="css/jssocials.css" />
         <css src="css/jssocials-theme-flat.css" />
         <css src="css/themes/fontawesome-stars.css" />
-
-        <script src="js/jquery-3.2.1.min.js" />
-        <script src="js/bootstrap.js" />
-        <script src="js/vendor/modernizr-2.8.3.min.js" />
-        <script src="js/main.js" />
     </head>
 </page>

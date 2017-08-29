@@ -29,5 +29,8 @@
         <referenceContainer name="page.top">
             <block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-" template="Magento_Theme::html/sections.phtml" remove="true"/>
         </referenceContainer>
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" name="controller_tool_javascript" template="Magento_Theme::html/footer_js.phtml"/>
+        </referenceContainer>
     </body>
 </page>

@@ -1,0 +1,87 @@
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="<?php echo $this->getViewFileUrl('js/bootstrap.min.js') ?>"></script>
+<script src="<?php echo $this->getViewFileUrl('js/jquery.flexslider-min.js') ?>"></script>
+<script src="<?php echo $this->getViewFileUrl('js/jquery.validate.min.js') ?>"></script>
+<!-- PRODUCT PAGE AND DETAIL POST PLUGIN SOCIAL -->
+<script src="<?php echo $this->getViewFileUrl('js/jssocials.min.js') ?>"></script>
+<script src="<?php echo $this->getViewFileUrl('js/jquery.barrating.min.js') ?>"></script>
+<!-- END -->
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="<?php echo $this->getViewFileUrl('js/plugins.js') ?>"></script>
+<script src="<?php echo $this->getViewFileUrl('js/main.js') ?>"></script>
+<script type="text/javascript">
+    (function ($) {
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            console.log($(this).data('slide'));
+            $('#' + $(this).data('slide')).flexslider({
+                animation: "slide",
+                animationLoop: false,
+                controlNav: true,
+                directionNav: false,
+                prevText: "<i class=\"demo-icon icon-left-open-1\">&#xe813;</i>",           //String: Set the text for the "previous" directionNav item
+                nextText: "<i class=\"demo-icon icon-right-open-1\">&#xe814;</i>",
+            });
+        });
+
+        // store the slider in a local variable
+        var $window = $(window);
+        $window.load(function () {
+            $('#slider-product-company').flexslider({
+                animation: "slide",
+                animationLoop: false,
+                controlNav: false,
+                prevText: "<i class=\"demo-icon icon-left-open-1\">&#xe813;</i>",           //String: Set the text for the "previous" directionNav item
+                nextText: "<i class=\"demo-icon icon-right-open-1\">&#xe814;</i>",
+            });
+            $('#support').flexslider({
+                animation: "slide",
+                animationLoop: false,
+                controlNav: true,
+                directionNav: false,
+                prevText: "<i class=\"demo-icon icon-left-open-1\">&#xe813;</i>",           //String: Set the text for the "previous" directionNav item
+                nextText: "<i class=\"demo-icon icon-right-open-1\">&#xe814;</i>",
+            });
+        });
+
+        $(window).scroll(function () {
+            var scrolling = $(window).scrollTop();
+            if (scrolling > 0) {
+
+                if (!$('#masthead').hasClass('dup')) {
+                    $('#masthead').addClass('dup').css('padding-top', $('#header').outerHeight());
+                }
+                $('#header').addClass('fixed');
+            } else {
+                if ($('#masthead').hasClass('dup')) {
+                    $('#masthead').removeClass('dup').css('padding-top', 0);
+                }
+                $('#header').removeClass('fixed');
+            }
+        });
+
+        $(document).click(function () {
+            var button = $('#menu-mobile');
+
+            if (button.hasClass('active')) {
+                $('#primary-menu').removeClass('open');
+                button.removeClass('active');
+                button.html('<i class="fa fa-bars" aria-hidden="true"></i>');
+            }
+        });
+        $('#menu-mobile').click(function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if ($(this).hasClass('active')) {
+                $('#primary-menu').removeClass('open');
+                $(this).removeClass('active');
+                $(this).html('<i class="fa fa-bars" aria-hidden="true"></i>');
+            } else {
+                $('#primary-menu').addClass('open');
+                $(this).addClass('active');
+                $(this).html('<i class="fa fa-times" aria-hidden="true"></i>');
+            }
+        });
+
+    }(jQuery));
+</script>
