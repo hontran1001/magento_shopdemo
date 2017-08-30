@@ -1,25 +1,35 @@
-<?xml version="1.0" ?>
-<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:hellomagento:Magento_Widget:etc/widget.xsd">
-    <widget id="cms_static_block" class="Magento\Cms\Block\Widget\Block"
-            placeholder_image="Magento_Cms::images/widget_block.png">
-        <label translate="true">CMS Static Block</label>
-        <description translate="true">Contents of a Static Block</description>
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="hontran_contact" class="\Hontran\Widget\Block\Widget\ContactWidget">
+        <label translate="true">Hontran Contact Details</label>
+        <description translate="true">Widget with editable contact details</description>
         <parameters>
-            <parameter name="block_id" xsi:type="block" visible="true" required="true" sort_order="20">
-                <label translate="true">Block</label>
-                <block class="Magento\Cms\Block\Adminhtml\Block\Widget\Chooser">
-                    <data>
-                        <item name="button" xsi:type="array">
-                            <item name="open" xsi:type="string" translate="true">Select Block...</item>
-                        </item>
-                    </data>
-                </block>
+            <parameter name="fullname" xsi:type="text" visible="true" sort_order="10">
+                <label translate="true">Full Name</label>
             </parameter>
-            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="10">
+            <parameter name="gender" xsi:type="select" required="true" visible="true"  sort_order="20">
+                <label translate="true">Gender</label>
+                <options>
+                    <option name="male" value="male" selected="true">
+                        <label translate="true">Male</label>
+                    </option>
+                    <option name="female" value="female">
+                        <label translate="true">Female</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="phone" xsi:type="text" visible="true" sort_order="30">
+                <label translate="true">Phone Number</label>
+            </parameter>
+            <parameter name="email" xsi:type="text" visible="true" sort_order="40">
+                <label translate="true">Email</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="false">
                 <label translate="true">Template</label>
                 <options>
-                    <option name="default" value="widget/static_block/default.phtml">
-                        <label translate="true">CMS Static Block Default Template</label>
+                    <option name="default" value="contact.phtml" selected="true">
+                        <label translate="true">New Products Grid Template</label>
                     </option>
                 </options>
             </parameter>
