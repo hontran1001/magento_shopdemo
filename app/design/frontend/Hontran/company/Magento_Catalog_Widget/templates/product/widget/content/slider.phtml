@@ -7,7 +7,6 @@
 // @codingStandardsIgnoreFile
 
 ?>
-<h1>HONTRAN</h1>
 <?php
 /**
  * Template for displaying products list widget
@@ -18,8 +17,6 @@
 <?php if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())):?>
     <?php
     $type = 'widget-product-grid';
-
-    $mode = 'grid';
 
     $image = 'new_products_content_widget_grid';
     $title = $block->getTitle() ? __($block->getTitle()) : '';

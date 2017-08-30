@@ -29,6 +29,18 @@
         <referenceContainer name="page.top">
             <block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-" template="Magento_Theme::html/sections.phtml" remove="true"/>
         </referenceContainer>
+
+        <referenceContainer name="footer-container">
+            <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlId="footer" htmlClass="footer content">
+                <container name="footer.container" as="footer.container" label="Footer Container" htmlTag="div" htmlClass="container">
+                    <container name="footer.container.row" as="footer.container.row" label="Footer Container Row" htmlTag="div" htmlClass="row" />
+                </container>
+            </container>
+            <container name="site.info" as="site.info" label="Page Footer Info" htmlTag="div" htmlId="site-info">
+                <container name="site.info.container" label="Page Footer Info Container" htmlTag="div" htmlClass="container" />
+            </container>
+        </referenceContainer>
+
         <referenceContainer name="before.body.end">
             <block class="Magento\Framework\View\Element\Template" name="controller_tool_javascript" template="Magento_Theme::html/footer_js.phtml"/>
         </referenceContainer>

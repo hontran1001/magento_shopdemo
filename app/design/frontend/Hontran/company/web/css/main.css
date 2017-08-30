@@ -133,6 +133,10 @@ body .demo-icon {
   height: auto;
   margin: 0px; }
 
+#slider-product-company.flexslider .slides .product-company img {
+  max-width: 100%;
+  width: auto; }
+
 #masthead {
   margin: 0;
   padding: 0;
@@ -908,12 +912,12 @@ h4.title {
         text-align: center;
         line-height: 40px;
         border-radius: 50%; }
-    #colophon #footer .ft-item#ft-newletter #form-newsletter .form-group {
+    #colophon #footer .ft-item#ft-newletter #newsletter-validate-detail .form-group {
       background: #fff;
       position: relative;
       border-radius: 4px;
       overflow: hidden; }
-      #colophon #footer .ft-item#ft-newletter #form-newsletter .form-group input {
+      #colophon #footer .ft-item#ft-newletter #newsletter-validate-detail .form-group input {
         float: left;
         width: calc(100% - 40px);
         border: none;
@@ -923,19 +927,19 @@ h4.title {
         height: 40px;
         color: #7b7c7d;
         font-style: italic; }
-        #colophon #footer .ft-item#ft-newletter #form-newsletter .form-group input:active, #colophon #footer .ft-item#ft-newletter #form-newsletter .form-group input:focus, #colophon #footer .ft-item#ft-newletter #form-newsletter .form-group input:visited {
+        #colophon #footer .ft-item#ft-newletter #newsletter-validate-detail .form-group input:active, #colophon #footer .ft-item#ft-newletter #newsletter-validate-detail .form-group input:focus, #colophon #footer .ft-item#ft-newletter #newsletter-validate-detail .form-group input:visited {
           outline: none;
           box-shadow: none; }
-      #colophon #footer .ft-item#ft-newletter #form-newsletter .form-group button {
+      #colophon #footer .ft-item#ft-newletter #newsletter-validate-detail .form-group button {
         height: 40px;
         background: none;
         border: none;
         outline: none;
         box-shadow: none; }
-        #colophon #footer .ft-item#ft-newletter #form-newsletter .form-group button:active, #colophon #footer .ft-item#ft-newletter #form-newsletter .form-group button:focus, #colophon #footer .ft-item#ft-newletter #form-newsletter .form-group button:visited {
+        #colophon #footer .ft-item#ft-newletter #newsletter-validate-detail .form-group button:active, #colophon #footer .ft-item#ft-newletter #newsletter-validate-detail .form-group button:focus, #colophon #footer .ft-item#ft-newletter #newsletter-validate-detail .form-group button:visited {
           outline: none;
           box-shadow: none; }
-        #colophon #footer .ft-item#ft-newletter #form-newsletter .form-group button .demo-icon {
+        #colophon #footer .ft-item#ft-newletter #newsletter-validate-detail .form-group button .demo-icon {
           color: #7b7c7d;
           font-size: 1.4em;
           line-height: 40px; }
