@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget id="hontran_contact" class="\Hontran\Widget\Block\Widget\ContactWidget">
+    <widget id="hontran_contact" class="Hontran\Widget\Block\Widget\ContactWidget">
         <label translate="true">Hontran Contact Details</label>
         <description translate="true">Widget with editable contact details</description>
         <parameters>
@@ -29,7 +29,32 @@
                 <label translate="true">Template</label>
                 <options>
                     <option name="default" value="contact.phtml" selected="true">
-                        <label translate="true">New Products Grid Template</label>
+                        <label translate="true">Contact Template Default</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="content_widget" class="Hontran\Widget\Block\Widget\Block"
+            placeholder_image="Magento_Cms::images/widget_block.png">
+        <label translate="true">HT CMS Block</label>
+        <description translate="true">Contents of HT CMS Block</description>
+        <parameters>
+            <parameter name="block_id" xsi:type="block" visible="true" required="true" sort_order="20">
+                <label translate="true">Block</label>
+                <block class="Magento\Cms\Block\Adminhtml\Block\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Block...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="10">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="contentwidget.phtml" selected="true">
+                        <label translate="true">HT CMS Block Default Template</label>
                     </option>
                 </options>
             </parameter>
