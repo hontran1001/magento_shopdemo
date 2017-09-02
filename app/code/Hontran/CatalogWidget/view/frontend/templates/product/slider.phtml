@@ -1,0 +1,33 @@
+<?php
+
+use  \Magento\Catalog\Block\Product\View\Description;
+
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Template for displaying products list widget
+ *
+ * @var $block \Magento\CatalogWidget\Block\Product\ProductsList
+ */
+?>
+<?php if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())):?>
+<?php
+    $image = 'laptop_thumbnail';
+    $items = $block->getProductCollection()->getItems();
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::DEFAULT_VIEW;
+?>
+    <ul class="slides">
+        <?php foreach ($items as $_product): ?>
+            <li><a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_product) ?>" title="<?php echo $block->escapeHtml($_product->getName()) ?>">
+                    <?php echo $block->getImage($_product, $image)->toHtml(); ?>
+                </a></li>
+        <?php endforeach ?>
+    </ul>
+<?php endif;?>

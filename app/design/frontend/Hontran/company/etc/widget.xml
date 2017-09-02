@@ -1,41 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget id="hontran_contact" class="Hontran\Widget\Block\Widget\ContactWidget">
-        <label translate="true">Hontran Contact Details</label>
-        <description translate="true">Widget with editable contact details</description>
-        <parameters>
-            <parameter name="fullname" xsi:type="text" visible="true" sort_order="10">
-                <label translate="true">Full Name</label>
-            </parameter>
-            <parameter name="gender" xsi:type="select" required="true" visible="true"  sort_order="20">
-                <label translate="true">Gender</label>
-                <options>
-                    <option name="male" value="male" selected="true">
-                        <label translate="true">Male</label>
-                    </option>
-                    <option name="female" value="female">
-                        <label translate="true">Female</label>
-                    </option>
-                </options>
-            </parameter>
-            <parameter name="phone" xsi:type="text" visible="true" sort_order="30">
-                <label translate="true">Phone Number</label>
-            </parameter>
-            <parameter name="email" xsi:type="text" visible="true" sort_order="40">
-                <label translate="true">Email</label>
-            </parameter>
-            <parameter name="template" xsi:type="select" required="true" visible="false">
-                <label translate="true">Template</label>
-                <options>
-                    <option name="default" value="contact.phtml" selected="true">
-                        <label translate="true">Contact Template Default</label>
-                    </option>
-                </options>
-            </parameter>
-        </parameters>
-    </widget>
-    <widget id="content_widget" class="Hontran\Widget\Block\Widget\Block"
+    <widget id="content_widget" class="Hontran\Cms\Block\Widget\Block"
             placeholder_image="Magento_Cms::images/widget_block.png">
         <label translate="true">HT CMS Block</label>
         <description translate="true">Contents of HT CMS Block</description>
@@ -53,11 +19,150 @@
             <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="10">
                 <label translate="true">Template</label>
                 <options>
-                    <option name="default" value="contentwidget.phtml" selected="true">
+                    <option name="default" value="block\contentwidget.phtml" selected="true">
                         <label translate="true">HT CMS Block Default Template</label>
                     </option>
                 </options>
             </parameter>
         </parameters>
     </widget>
+
+    <widget id="widget_product_slide" class="Hontran\CatalogWidget\Block\Product\ProductsList" is_email_compatible="true"
+            placeholder_image="Magento_CatalogWidget::images/products_list.png" ttl="86400">
+        <label translate="true">Widget Product Category Slide</label>
+        <description translate="true">Widget Product Category Slide With Flexslide</description>
+        <parameters>
+            <parameter name="show_pager" xsi:type="select" visible="true"
+                       source_model="Magento\Config\Model\Config\Source\Yesno">
+                <label translate="true">Display Page Control</label>
+            </parameter>
+            <parameter name="products_per_page" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products per Page</label>
+                <depends>
+                    <parameter name="show_pager" value="1" />
+                </depends>
+                <value>5</value>
+            </parameter>
+            <parameter name="products_count" xsi:type="text" required="true" visible="true">
+                <label translate="true">Number of Products to Display</label>
+                <value>10</value>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="product/slider.phtml" selected="true">
+                        <label translate="true">Products Slide Template</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="condition" xsi:type="conditions" visible="true" required="true" sort_order="10"
+                       class="Magento\CatalogWidget\Block\Product\Widget\Conditions">
+                <label translate="true">Conditions</label>
+            </parameter>
+        </parameters>
+        <containers>
+            <container name="content">
+                <template name="grid" value="default" />
+            </container>
+            <container name="content.top">
+                <template name="grid" value="default" />
+            </container>
+            <container name="content.bottom">
+                <template name="grid" value="default" />
+            </container>
+        </containers>
+    </widget>
+
+    <widget id="catalog_category_link"
+            class="Magento\Catalog\Block\Category\Widget\Link"
+            is_email_compatible="true"
+            placeholder_image="Magento_Catalog::images/category_widget_link.png">
+        <label translate="true">Catalog Category Link</label>
+        <description translate="true">Link to a Specified Category</description>
+        <parameters>
+            <parameter name="id_path" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Category</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Text</label>
+                <description translate="true">If empty, we'll use the category name here.</description>
+            </parameter>
+            <parameter name="title" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Title</label>
+            </parameter>
+            <parameter name="class" xsi:type="text" visible="true">
+                <label translate="true">Class Attribute</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default"
+                            value="category/widget/link/link_block.phtml"
+                            selected="true">
+                        <label translate="true">Category Link Block Template</label>
+                    </option>
+                    <option name="link_inline" value="category/widget/link/link_inline.phtml">
+                        <label translate="true">Category Link Inline Template</label>
+                    </option>
+                    <option name="link_default" value="category/widget/link/link.phtml">
+                        <label translate="true">Category Link Default Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget id="cms_page_link" class="Magento\Cms\Block\Widget\Page\Link" is_email_compatible="true"
+            placeholder_image="Magento_Cms::images/widget_page_link.png">
+        <label translate="true">CMS Page Link</label>
+        <description translate="true">Link to a CMS Page</description>
+        <parameters>
+            <parameter name="page_id" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">CMS Page</label>
+                <block class="Magento\Cms\Block\Adminhtml\Page\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Page...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="anchor_text" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Text</label>
+                <description translate="true">If empty, the Page Title will be used</description>
+            </parameter>
+            <parameter name="title" xsi:type="text" visible="true">
+                <label translate="true">Anchor Custom Title</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="widget/link/link_block.phtml" selected="true">
+                        <label translate="true">CMS Page Link Block Template</label>
+                    </option>
+                    <option name="link_inline" value="widget/link/link_inline.phtml">
+                        <label translate="true">CMS Page Link Inline Template</label>
+                    </option>
+                    <option name="link_icon" value="widget/link/link.phtml">
+                        <label translate="true">HT Link Page Icon</label>
+                    </option>
+                    <option name="link" value="widget/link/link.phtml">
+                        <label translate="true">Page Link Href</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+
 </widgets>
