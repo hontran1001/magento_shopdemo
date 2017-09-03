@@ -19,7 +19,7 @@
             <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="10">
                 <label translate="true">Template</label>
                 <options>
-                    <option name="default" value="block\contentwidget.phtml" selected="true">
+                    <option name="default" value="block/contentwidget.phtml" selected="true">
                         <label translate="true">HT CMS Block Default Template</label>
                     </option>
                 </options>
