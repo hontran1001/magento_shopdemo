@@ -29,7 +29,19 @@
         <referenceContainer name="page.top">
             <block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-" template="Magento_Theme::html/sections.phtml" remove="true"/>
         </referenceContainer>
-
+        <move element="breadcrumbs" destination="header.container" after="-" />
+        <referenceContainer name="main.content">
+            <container name="columns" htmlTag="div" htmlClass="columns" remove="true" />
+            <container name="row.heading.page" label="Row Heading Page" htmlTag="div" htmlClass="row-heading">
+                <container name="row.heading.page.container" label="Row Heading Page Container" htmlTag="div" htmlClass="container">
+                    <block class="Magento\Theme\Block\Html\Title" name="page.main.title" template="html/title.phtml"/>
+                </container>
+            </container>
+            <container name="content.top" label="Main Content Top"/>
+            <container name="content" label="Main Content Area"/>
+            <container name="content.aside" label="Main Content Aside"/>
+            <container name="content.bottom" label="Main Content Bottom"/>
+        </referenceContainer>
         <referenceContainer name="footer-container">
             <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlId="footer" htmlClass="footer content">
                 <container name="footer.container" as="footer.container" label="Footer Container" htmlTag="div" htmlClass="container">

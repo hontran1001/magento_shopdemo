@@ -17,14 +17,12 @@ if (trim($block->getPageHeading())) {
 }
 ?>
 <?php if ($title): ?>
-<div class="page-title-wrapper<?php /* @escapeNotVerified */ echo $cssClass; ?>">
-    <h1 class="page-title"
-        <?php if ($block->getId()): ?> id="<?php /* @escapeNotVerified */ echo $block->getId();?>" <?php endif; ?>
-        <?php if ($block->getAddBaseAttributeAria()): ?>
-            aria-labelledby="<?php /* @escapeNotVerified */ echo $block->getAddBaseAttributeAria(); ?>"
-        <?php endif; ?>>
-        <?php /* @escapeNotVerified */ echo $title ?>
-    </h1>
-    <?php echo $block->getChildHtml(); ?>
-</div>
+        <h1 class="page-title title heading-page"
+            <?php if ($block->getId()): ?> id="<?php /* @escapeNotVerified */ echo $block->getId();?>" <?php endif; ?>
+            <?php if ($block->getAddBaseAttributeAria()): ?>
+                aria-labelledby="<?php /* @escapeNotVerified */ echo $block->getAddBaseAttributeAria(); ?>"
+            <?php endif; ?>>
+            <?php /* @escapeNotVerified */ echo $title ?>
+        </h1>
+        <?php echo $block->getChildHtml(); ?>
 <?php endif; ?>

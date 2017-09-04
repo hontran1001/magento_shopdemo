@@ -8,8 +8,9 @@
 
 ?>
 <?php if ($crumbs && is_array($crumbs)) : ?>
-<div class="breadcrumbs">
-    <ul class="items">
+<div id="breadcrumbs" class="breadcrumbs">
+    <div class="wrap">
+    <ul class="breadcrumbs container">
         <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
             <li class="item <?php /* @escapeNotVerified */ echo $crumbName ?>">
             <?php if ($crumbInfo['link']) : ?>
@@ -17,12 +18,13 @@
                     <?php echo $block->escapeHtml($crumbInfo['label']) ?>
                 </a>
             <?php elseif ($crumbInfo['last']) : ?>
-                <strong><?php echo $block->escapeHtml($crumbInfo['label']) ?></strong>
+                <span><?php echo $block->escapeHtml($crumbInfo['label']) ?></span>
             <?php else: ?>
                 <?php echo $block->escapeHtml($crumbInfo['label']) ?>
             <?php endif; ?>
             </li>
         <?php endforeach; ?>
     </ul>
+</div>
 </div>
 <?php endif; ?>
