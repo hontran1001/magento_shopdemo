@@ -5,56 +5,72 @@
  * See COPYING.txt for license details.
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="header.container">
-            <container name="header.panel.wrapper" htmlClass="panel wrapper" htmlTag="div" before="-" remove="true" />
-            <container name="header-wrapper" label="Page Header" as="header-wrapper" htmlTag="div" htmlClass="header content" remove="true" />
-            <container name="header-content" label="Logo And Menu on Header" as="header-content" htmlTag="div" htmlId="header">
-                    <container name="header.content.container" label="Logo And Menu into Container BT" as="header.content.container" htmlTag="div" htmlId="" htmlClass="container">
-                        <block class="Magento\Theme\Block\Html\Header\Logo" name="logo">
-                            <arguments>
-                                <argument name="logo_img_width" xsi:type="number">189</argument>
-                                <argument name="logo_img_height" xsi:type="number">64</argument>
-                            </arguments>
-                        </block>
-                        <block class="Magento\Framework\View\Element\Template" name="store.menu" group="navigation-sections" template="Magento_Theme::html/container.phtml" after="-">
-                            <arguments>
-                                <argument name="button_menu_mobile" translate="true" xsi:type="string"><button class="hidden" id="menu-mobile"><i class="fa fa-bars" aria-hidden="true"></i></button></argument>
-                            </arguments>
-                        </block>
-                    </container>
+            <container name="header.panel.wrapper" htmlClass="panel wrapper" htmlTag="div" before="-" remove="true"/>
+            <container name="header-wrapper" label="Page Header" as="header-wrapper" htmlTag="div"
+                       htmlClass="header content" remove="true"/>
+            <container name="header-content" label="Logo And Menu on Header" as="header-content" htmlTag="div"
+                       htmlId="header">
+                <container name="header.content.container" label="Logo And Menu into Container BT"
+                           as="header.content.container" htmlTag="div" htmlId="" htmlClass="container">
+                    <block class="Magento\Theme\Block\Html\Header\Logo" name="logo">
+                        <arguments>
+                            <argument name="logo_img_width" xsi:type="number">189</argument>
+                            <argument name="logo_img_height" xsi:type="number">64</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Template" name="store.menu" group="navigation-sections"
+                           template="Magento_Theme::html/container.phtml" after="-">
+                        <arguments>
+                            <argument name="button_menu_mobile" translate="true" xsi:type="string">
+                                <button class="hidden" id="menu-mobile">
+                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                </button>
+                            </argument>
+                        </arguments>
+                    </block>
+                </container>
             </container>
         </referenceContainer>
         <referenceContainer name="page.top">
-            <block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-" template="Magento_Theme::html/sections.phtml" remove="true"/>
+            <block class="Magento\Framework\View\Element\Template" name="navigation.sections" before="-"
+                   template="Magento_Theme::html/sections.phtml" remove="true"/>
         </referenceContainer>
-        <move element="breadcrumbs" destination="header.container" after="-" />
+        <move element="breadcrumbs" destination="header.container" after="-"/>
         <referenceContainer name="main.content">
-            <container name="columns" htmlTag="div" htmlClass="columns" remove="true" />
+            <container name="columns" htmlTag="div" htmlClass="columns" remove="true"/>
             <container name="row.heading.page" label="Row Heading Page" htmlTag="div" htmlClass="row-heading">
-                <container name="row.heading.page.container" label="Row Heading Page Container" htmlTag="div" htmlClass="container">
+                <container name="row.heading.page.container" label="Row Heading Page Container" htmlTag="div"
+                           htmlClass="container">
                     <block class="Magento\Theme\Block\Html\Title" name="page.main.title" template="html/title.phtml"/>
                 </container>
             </container>
             <container name="content.top" label="Main Content Top"/>
-            <container name="content" label="Main Content Area"/>
+            <container name="content" label="Main Content" htmlTag="div" htmlClass="main-content"/>
             <container name="content.aside" label="Main Content Aside"/>
             <container name="content.bottom" label="Main Content Bottom"/>
         </referenceContainer>
         <referenceContainer name="footer-container">
-            <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlId="footer" htmlClass="footer content">
-                <container name="footer.container" as="footer.container" label="Footer Container" htmlTag="div" htmlClass="container">
-                    <container name="footer.container.row" as="footer.container.row" label="Footer Container Row" htmlTag="div" htmlClass="row" />
+            <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlId="footer"
+                       htmlClass="footer content">
+                <container name="footer.container" as="footer.container" label="Footer Container" htmlTag="div"
+                           htmlClass="container">
+                    <container name="footer.container.row" as="footer.container.row" label="Footer Container Row"
+                               htmlTag="div" htmlClass="row"/>
                 </container>
             </container>
             <container name="site.info" as="site.info" label="Page Footer Info" htmlTag="div" htmlId="site-info">
-                <container name="site.info.container" label="Page Footer Info Container" htmlTag="div" htmlClass="container" />
+                <container name="site.info.container" label="Page Footer Info Container" htmlTag="div"
+                           htmlClass="container"/>
             </container>
         </referenceContainer>
 
         <referenceContainer name="before.body.end">
-            <block class="Magento\Framework\View\Element\Template" name="controller_tool_javascript" template="Magento_Theme::html/footer_js.phtml"/>
+            <block class="Magento\Framework\View\Element\Template" name="controller_tool_javascript"
+                   template="Magento_Theme::html/footer_js.phtml"/>
         </referenceContainer>
     </body>
 </page>

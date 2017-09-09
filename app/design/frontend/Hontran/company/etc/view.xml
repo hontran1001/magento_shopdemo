@@ -8,6 +8,29 @@
 <view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/view.xsd">
     <media>
         <images module="Magento_Catalog">
+
+            <!--HONTRAN-->
+
+            <image id="laptop_thumbnail" type="thumbnail">
+                <width>140</width>
+                <height>87</height>
+            </image>
+            <image id="mobile_thumbnail" type="thumbnail">
+                <width>150</width>
+                <height>225</height>
+            </image>
+            <!-- ################ -->
+            <image id="laptop_small_image" type="small_image">
+                <width>380</width>
+                <height>236</height>
+            </image>
+            <image id="mobile_small_image" type="small_image">
+                <width>350</width>
+                <height>525</height>
+            </image>
+
+            <!-- END -->
+
             <image id="bundled_product_customization_page" type="thumbnail">
                 <width>140</width>
                 <height>140</height>

@@ -1,0 +1,57 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Framework\App\Action\Action;
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Magento\Catalog\Block\Product\ListProduct
+ */
+?>
+<?php
+
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+
+?>
+<?php if (!$_productCollection->count()): ?>
+    <div class="message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find products matching the selection.') ?></div></div>
+<?php else: ?>
+    <?php echo $block->getToolbarHtml() ?>
+    <?php
+    $display_mode = $block->getDisplayMode();
+
+    if ($block->getMode() == 'grid') {
+        $viewMode = 'grid';
+        $image = 'category_page_grid';
+        $showDescription = false;
+        $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    }
+    ?>
+    <div class="products row wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> products-<?php /* @escapeNotVerified */ echo $viewMode; ?>">
+
+        <?php foreach ($_productCollection as $_product){ ?>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 product <?php echo !empty($display_mode) ? $display_mode : 'laptop' ; ?>">
+            <div class="box">
+                <a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" class="wrap-box">
+                    <figure class="over">
+                        <?php
+                        $productImage = $block->getImage($_product, $image);
+                        ?>
+                        <?php echo $productImage->toHtml(); ?>
+                    </figure>
+                </a>
+                <h2 class="title"><a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>"><?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?></a></h2>
+            </div>
+        </div>
+        <?php } ?>
+    </div>
+    <?php echo $block->getToolbarHtml() ?>
+<?php endif; ?>

@@ -47,6 +47,17 @@
                 <label translate="true">Number of Products to Display</label>
                 <value>10</value>
             </parameter>
+            <parameter name="display_type" xsi:type="select" required="true" visible="true">
+                <label translate="true">Display type</label>
+                <options>
+                    <option name="laptop" value="laptop_small_image" selected="true">
+                        <label translate="true">Laptop</label>
+                    </option>
+                    <option name="mobile" value="mobile_small_image" selected="true">
+                        <label translate="true">Mobile</label>
+                    </option>
+                </options>
+            </parameter>
             <parameter name="template" xsi:type="select" required="true" visible="true">
                 <label translate="true">Template</label>
                 <options>

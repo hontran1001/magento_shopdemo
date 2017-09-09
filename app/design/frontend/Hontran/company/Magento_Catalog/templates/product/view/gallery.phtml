@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+$images = json_decode($block->getGalleryImagesJson(),true);
+?>
+
+<div id="carousel-thumbnail" class="flexslider slide-image-product">
+    <ul class="slides">
+        <?php foreach ($images as $image){ ?>
+            <li>
+                <img src="<?php echo $image['thumb']; ?>"/>
+            </li>
+        <?php } ?>
+    </ul>
+</div>
+<div id="slider-image-product" class="flexslider">
+    <ul class="slides">
+        <?php foreach ($images as $image){ ?>
+            <li>
+                <img src="<?php echo $image['full']; ?>"/>
+            </li>
+        <?php } ?>
+    </ul>
+</div>
+<div id="carousel-thumbnail-1" class="flexslider slide-image-product">
+    <ul class="slides">
+        <?php foreach ($images as $image){ ?>
+            <li>
+                <img src="<?php echo $image['thumb']; ?>"/>
+            </li>
+        <?php } ?>
+    </ul>
+</div>
