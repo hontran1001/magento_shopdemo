@@ -12,18 +12,21 @@ class Gallery extends \Magento\Catalog\Block\Product\View\Gallery
     {
         $product = $this->getProduct();
         $images = $product->getMediaGalleryImages();
+
+        $project_type = $product->getResource()->getAttribute('project_type')->getSource()->getOptionText($product->getCustomAttribute('project_type')->getValue());
+
         if ($images instanceof \Magento\Framework\Data\Collection) {
             foreach ($images as $image) {
                 /* @var \Magento\Framework\DataObject $image */
                 $image->setData(
                     'small_image_url',
-                    $this->_imageHelper->init($product, 'laptop_thumbnail')
+                    $this->_imageHelper->init($product, strtolower($project_type).'_thumbnail')
                         ->setImageFile($image->getFile())
                         ->getUrl()
                 );
                 $image->setData(
                     'medium_image_url',
-                    $this->_imageHelper->init($product, 'laptop_small_image')
+                    $this->_imageHelper->init($product, strtolower($project_type).'_small_image')
                         ->constrainOnly(true)->keepAspectRatio(true)->keepFrame(false)
                         ->setImageFile($image->getFile())
                         ->getUrl()

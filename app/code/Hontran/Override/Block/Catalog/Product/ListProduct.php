@@ -1,6 +1,6 @@
 <?php
 
-namespace Hontran\Catalog\Product;
+namespace Hontran\Override\Block\Catalog\Product;
 
 use \Magento\Framework\App\ObjectManager;
 

@@ -38,4 +38,8 @@
         </div>
     </div>
 <?php endif; ?>
+<script type="text/javascript">
+    <?php $product = $block->getProduct(); ?>
+    var url_share = '<?php /* @escapeNotVerified */ echo $product->getProductUrl(); ?>';
+</script>
 <div id="share"></div>

@@ -12,17 +12,17 @@
 ?>
 <div class="block review-add">
     <div class="block-title"><strong><?php /* @escapeNotVerified */ echo __('Write Your Own Review') ?></strong></div>
-<div class="block-content">
+<div id="form-rating" class="block-content">
 <?php if ($block->getAllowWriteReviewFlag()): ?>
 <form action="<?php /* @escapeNotVerified */ echo $block->getAction() ?>" class="review-form" method="post" id="review-form" data-role="product-review-form" data-bind="scope: 'review-form'">
     <?php echo $block->getBlockHtml('formkey'); ?>
     <?php echo $block->getChildHtml('form_fields_before')?>
     <fieldset class="fieldset review-fieldset" data-hasrequired="<?php __('* Required Fields'); ?>">
-        <legend class="legend review-legend"><span><?php /* @escapeNotVerified */ echo __("You're reviewing:"); ?></span><strong><?php echo $block->escapeHtml($block->getProductInfo()->getName()) ?></strong></legend><br />
+        <legend class="legend review-legend"><span><?php /* @escapeNotVerified */ echo __("You're reviewing:"); ?></span><strong><?php echo $block->escapeHtml($block->getProductInfo()->getName()) ?></strong></legend>
         <?php if ($block->getRatings() && $block->getRatings()->getSize()): ?>
         <span id="input-message-box"></span>
         <fieldset class="field required review-field-ratings">
-            <legend class="label"><span><?php /* @escapeNotVerified */ echo __('Your Rating') ?><span></legend><br/>
+            <h4><?php /* @escapeNotVerified */ echo __('Your Rating') ?></h4>
             <div class="control">
                 <div class="nested" id="product-review-table">
                     <?php foreach ($block->getRatings() as $_rating): ?>
@@ -77,7 +77,7 @@
     </fieldset>
     <div class="actions-toolbar review-form-actions">
         <div class="primary actions-primary">
-            <button type="submit" class="action submit primary"><span><?php /* @escapeNotVerified */ echo __('Submit Review') ?></span></button>
+            <button type="submit" class="action submit primary btn btn-primary"><span><?php /* @escapeNotVerified */ echo __('Submit Review') ?></span></button>
         </div>
     </div>
 </form>

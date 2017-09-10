@@ -1,0 +1,16 @@
+<?php
+// $block \Magento\Catalog\Block\Product\View;
+$product = $block->getProduct();
+
+?>
+<div class="row action">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <a href="<?php echo $product->getResource()->getAttribute('link_demo')->getSource()->getOptionText($product->getCustomAttribute('link_demo')->getValue()); ?>" class="btn btn-primary btn-small">VIEW DEMO</a>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <button class="btn btn-warning btn-small" id="buy-psd">BUY PSD</button>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <button class="btn btn-danger btn-small" id="buy-website">BUY WEBSITE</button>
+    </div>
+</div>
